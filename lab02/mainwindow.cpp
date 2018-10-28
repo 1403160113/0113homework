@@ -75,8 +75,14 @@ clearBtn->setText (tr("清除"));
 clearBtn->setToolTip(tr("清除当前画板"));
 connect (clearBtn, &QToolButton::clicked, centerFrame, &CenterFrame::clearPaint);
 
-//创建图标
-pictureBtn = new QToolButton;
+
+//创建保存工具栏
+savepicBtn = new QToolButton;
+savepicBtn->setText (tr("保存"));
+savepicBtn->setToolTip(tr("保存当前图片"));
+connect (savepicBtn, &QToolButton::clicked, centerFrame, &CenterFrame::savepicPaint);
+
+
 
 // 向工具栏上添加各个控件
 toolBar->addWidget (styleLabel);
@@ -86,7 +92,7 @@ toolBar->addWidget (widthSpinBox);
 toolBar->addWidget (colorBtn);
 toolBar->addSeparator();
 toolBar->addWidget (clearBtn);
-toolBar->addWidget(pictureBtn);
+toolBar->addWidget(savepicBtn);
 }
 
 void MainWindow::penStyleChangged (int index)

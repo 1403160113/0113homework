@@ -34,9 +34,10 @@
  public slots:
      void setStyle(int);
      void setWidth(int);
-    void setColor(QColor);
+     void setColor(QColor);
      void clear();
      void pic();
+     void savepic();
 
  private :
      QPixmap *pix;

@@ -282,7 +282,12 @@ p.fill(BACKGROUND_COLOR);
 
  void CenterFrame::clearPaint()
  {
-  drawWidget->clear();
+     drawWidget->clear();
+ }
+
+ void CenterFrame::savepicPaint()
+ {
+     drawWidget->savepic();
  }
 
 

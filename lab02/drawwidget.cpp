@@ -116,6 +116,13 @@ pix->fill(BACKGROUND_COLOR);
 update ();
 }
 
+void DrawWidget::savepic ()
+{
+// 保存绘图内容
+QString filename = QFileDialog::getSaveFileName(this,tr("选择图像"),"",tr("Images (*.png *.bmp *.jpg)"));
+pix->save(filename);
+}
+
 void DrawWidget::pic()
 {
 QString open_fileName;  //获取文件路径
