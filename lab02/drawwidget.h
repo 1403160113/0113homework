@@ -36,6 +36,7 @@
      void setWidth(int);
     void setColor(QColor);
      void clear();
+     void pic();
 
  private :
      QPixmap *pix;

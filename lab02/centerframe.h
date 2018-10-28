@@ -43,7 +43,7 @@ void on_btnTriangleClicked();
 void on_btnDiamondClicked();
 void on_btnTextClicked();
 void on_edtTextEdited(const QString &text);
-
+void on_btnpicClicked();
 
 private:
 QVBoxLayout* vLayout;
@@ -56,6 +56,7 @@ QPushButton* btnLine;
 QPushButton* btnTriangle;
 QPushButton* btnDiamond;
 QPushButton* btnText;
+QPushButton* btnpic;
 QLineEdit* edtText;
 
 

@@ -9,6 +9,9 @@
 #include <QGridLayout>
 #include <QLineEdit>
 #include <QDebug>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QVector>
 
 CenterFrame::CenterFrame(QWidget *parent) : QFrame(parent)
 {
@@ -135,6 +138,21 @@ p.fill(BACKGROUND_COLOR);
   connect(btnText,&QPushButton::clicked,
   this,&CenterFrame::on_btnTextClicked);
 
+  //绘制图片
+  btnpic = new QPushButton(group);
+  btnpic ->setToolTip("绘制图片");
+  btnpic ->setCheckable(true);
+  btnpic ->setIconSize(p.size());
+
+  p.fill(BACKGROUND_COLOR);
+  QImage image("://Q1.png");
+  QRect targetRect(0,0,p.size().width(),p.size().height());
+  QRect sourceRect =image.rect();
+  painter.drawImage(targetRect,image,sourceRect);
+  btnpic->setIcon (QIcon(p));
+  connect(btnpic,&QPushButton::clicked,this, &CenterFrame::on_btnpicClicked);
+
+
   // 选项Group布局
   QGridLayout *gridLayout = new QGridLayout();
   gridLayout->addWidget(btnRect,0,0);
@@ -143,6 +161,7 @@ p.fill(BACKGROUND_COLOR);
   gridLayout->addWidget(btnLine,1,1);
   gridLayout->addWidget(btnText,2,0);
   gridLayout->addWidget(btnDiamond,2,1);
+  gridLayout->addWidget(btnpic,3,0);
   gridLayout->setMargin(3);
   gridLayout->setSpacing(3);
   group->setLayout(gridLayout);
@@ -335,6 +354,21 @@ p.fill(BACKGROUND_COLOR);
   drawWidget->setDrawnText(text);
  }
 
+
+ //绘制图片按键响应槽函数
+ void CenterFrame::on_btnpicClicked()
+ {
+ if(btnpic->isChecked())
+ {
+    drawWidget->setShapeType(ST::picture);
+    drawWidget->pic();
+    updateButtonStatus();
+ }
+ else
+ {
+    drawWidget->setShapeType(ST::None);
+ }
+ }
 
 
 

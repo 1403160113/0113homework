@@ -31,6 +31,7 @@ QLabel *widthLabel;
 QSpinBox *widthSpinBox;
 QToolButton *colorBtn;
 QToolButton *clearBtn;
+QToolButton *pictureBtn;
 };
 #endif // MAINWINDOW_H
 

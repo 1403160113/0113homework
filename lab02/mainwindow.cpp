@@ -8,6 +8,7 @@
 #include <QToolButton>
 #include <QDebug>
 #include <QLayout>
+#include <QPainter>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -74,6 +75,8 @@ clearBtn->setText (tr("清除"));
 clearBtn->setToolTip(tr("清除当前画板"));
 connect (clearBtn, &QToolButton::clicked, centerFrame, &CenterFrame::clearPaint);
 
+//创建图标
+pictureBtn = new QToolButton;
 
 // 向工具栏上添加各个控件
 toolBar->addWidget (styleLabel);
@@ -83,6 +86,7 @@ toolBar->addWidget (widthSpinBox);
 toolBar->addWidget (colorBtn);
 toolBar->addSeparator();
 toolBar->addWidget (clearBtn);
+toolBar->addWidget(pictureBtn);
 }
 
 void MainWindow::penStyleChangged (int index)
